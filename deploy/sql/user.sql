@@ -1,0 +1,9 @@
+CREATE TABLE user (
+    `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增ID',
+    `username` VARCHAR(20) NOT NULL COMMENT '用户名',
+    `password` VARCHAR(255) NOT NULL COMMENT '密码',
+    `ctime` BIGINT NOT NULL DEFAULT 0 COMMENT '创建时间',
+    `utime` BIGINT NOT NULL DEFAULT 0 COMMENT '更新时间',
+    PRIMARY KEY (id),
+    UNIQUE KEY `uni_username` (username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
