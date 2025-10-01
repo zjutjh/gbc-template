@@ -3,7 +3,7 @@ package repo
 import (
 	"context"
 
-	"github.com/zjutjh/jhgo/ndb"
+	"github.com/zjutjh/mygo/ndb"
 
 	"app/dao/model"
 	"app/dao/query"

@@ -3,7 +3,7 @@ package cmd
 import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-	"github.com/zjutjh/jhgo/nlog"
+	"github.com/zjutjh/mygo/nlog"
 )
 
 func ExampleRun(cmd *cobra.Command, args []string) error {

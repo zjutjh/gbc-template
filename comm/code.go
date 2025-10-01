@@ -1,6 +1,6 @@
 package comm
 
-import "github.com/zjutjh/jhgo/kit"
+import "github.com/zjutjh/mygo/kit"
 
 const CodeOK kit.Code = 0 // CodeOK 成功
 

@@ -1,8 +1,8 @@
 package cron
 
 import (
-	"github.com/zjutjh/jhgo/config"
-	"github.com/zjutjh/jhgo/nlog"
+	"github.com/zjutjh/mygo/config"
+	"github.com/zjutjh/mygo/nlog"
 )
 
 type ExampleJob struct{}

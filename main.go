@@ -4,9 +4,9 @@ import (
 	"sync"
 
 	"github.com/spf13/cobra"
-	"github.com/zjutjh/jhgo/foundation/command"
-	"github.com/zjutjh/jhgo/foundation/crontab"
-	"github.com/zjutjh/jhgo/foundation/httpserver"
+	"github.com/zjutjh/mygo/foundation/command"
+	"github.com/zjutjh/mygo/foundation/crontab"
+	"github.com/zjutjh/mygo/foundation/httpserver"
 
 	"app/register"
 )

@@ -4,8 +4,8 @@ import (
 	"slices"
 
 	"github.com/gin-gonic/gin"
-	"github.com/zjutjh/jhgo/config"
-	"github.com/zjutjh/jhgo/swagger"
+	"github.com/zjutjh/mygo/config"
+	"github.com/zjutjh/mygo/swagger"
 
 	"app/api"
 	"app/middleware"

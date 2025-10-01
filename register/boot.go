@@ -3,13 +3,13 @@ package register
 import (
 	"fmt"
 
-	"github.com/zjutjh/jhgo/config"
-	"github.com/zjutjh/jhgo/foundation/kernel"
-	"github.com/zjutjh/jhgo/kit"
-	"github.com/zjutjh/jhgo/ndb"
-	"github.com/zjutjh/jhgo/nedis"
-	"github.com/zjutjh/jhgo/nesty"
-	"github.com/zjutjh/jhgo/nlog"
+	"github.com/zjutjh/mygo/config"
+	"github.com/zjutjh/mygo/foundation/kernel"
+	"github.com/zjutjh/mygo/kit"
+	"github.com/zjutjh/mygo/ndb"
+	"github.com/zjutjh/mygo/nedis"
+	"github.com/zjutjh/mygo/nesty"
+	"github.com/zjutjh/mygo/nlog"
 
 	"app/comm"
 )

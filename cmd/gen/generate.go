@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/spf13/cobra"
-	"github.com/zjutjh/jhgo/foundation/command"
-	"github.com/zjutjh/jhgo/ndb"
+	"github.com/zjutjh/mygo/foundation/command"
+	"github.com/zjutjh/mygo/ndb"
 	"gorm.io/gen"
 	"gorm.io/gen/field"
 	"gorm.io/gorm"
