@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/zjutjh/mygo/config"
+	"github.com/zjutjh/mygo/feishu"
 	"github.com/zjutjh/mygo/foundation/kernel"
 	"github.com/zjutjh/mygo/kit"
 	"github.com/zjutjh/mygo/ndb"
@@ -17,8 +18,8 @@ import (
 func Boot() kernel.BootList {
 	return kernel.BootList{
 		// 基础引导器
-		// TODO: Feishu报警
-		nlog.Boot(), // 业务日志
+		feishu.Boot(), // 飞书Bot (消息提醒)
+		nlog.Boot(),   // 业务日志
 
 		// Client引导器
 		ndb.Boot(),   // DB
