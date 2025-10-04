@@ -5,14 +5,14 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/zjutjh/mygo/config"
+	"github.com/zjutjh/mygo/middleware/cors"
 	"github.com/zjutjh/mygo/swagger"
 
 	"app/api"
-	"app/middleware"
 )
 
 func Route(router *gin.Engine) {
-	router.Use(middleware.Cors())
+	router.Use(cors.Pick())
 
 	r := router.Group(routePrefix())
 	{
