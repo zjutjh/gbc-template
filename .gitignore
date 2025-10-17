@@ -34,3 +34,6 @@ go.work.sum
 # log
 ./logs
 *.log
+
+# gen
+./register/generate/status_codes_generated.go
