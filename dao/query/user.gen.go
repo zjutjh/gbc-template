@@ -30,8 +30,9 @@ func newUser(db *gorm.DB, opts ...gen.DOOption) user {
 	_user.ID = field.NewInt64(tableName, "id")
 	_user.Username = field.NewString(tableName, "username")
 	_user.Password = field.NewString(tableName, "password")
-	_user.Ctime = field.NewInt64(tableName, "ctime")
-	_user.Utime = field.NewInt64(tableName, "utime")
+	_user.CreatedAt = field.NewTime(tableName, "created_at")
+	_user.UpdatedAt = field.NewTime(tableName, "updated_at")
+	_user.DeletedAt = field.NewField(tableName, "deleted_at")
 
 	_user.fillFieldMap()
 
@@ -39,14 +40,15 @@ func newUser(db *gorm.DB, opts ...gen.DOOption) user {
 }
 
 type user struct {
-	userDo
+	userDo userDo
 
-	ALL      field.Asterisk
-	ID       field.Int64  // 自增ID
-	Username field.String // 用户名
-	Password field.String // 密码
-	Ctime    field.Int64  // 创建时间
-	Utime    field.Int64  // 更新时间
+	ALL       field.Asterisk
+	ID        field.Int64  // 自增ID
+	Username  field.String // 用户名
+	Password  field.String // 密码
+	CreatedAt field.Time   // 创建时间
+	UpdatedAt field.Time   // 更新时间
+	DeletedAt field.Field  // 删除时间 (软删除)
 
 	fieldMap map[string]field.Expr
 }
@@ -66,13 +68,22 @@ func (u *user) updateTableName(table string) *user {
 	u.ID = field.NewInt64(table, "id")
 	u.Username = field.NewString(table, "username")
 	u.Password = field.NewString(table, "password")
-	u.Ctime = field.NewInt64(table, "ctime")
-	u.Utime = field.NewInt64(table, "utime")
+	u.CreatedAt = field.NewTime(table, "created_at")
+	u.UpdatedAt = field.NewTime(table, "updated_at")
+	u.DeletedAt = field.NewField(table, "deleted_at")
 
 	u.fillFieldMap()
 
 	return u
 }
+
+func (u *user) WithContext(ctx context.Context) IUserDo { return u.userDo.WithContext(ctx) }
+
+func (u user) TableName() string { return u.userDo.TableName() }
+
+func (u user) Alias() string { return u.userDo.Alias() }
+
+func (u user) Columns(cols ...field.Expr) gen.Columns { return u.userDo.Columns(cols...) }
 
 func (u *user) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 	_f, ok := u.fieldMap[fieldName]
@@ -84,12 +95,13 @@ func (u *user) GetFieldByName(fieldName string) (field.OrderExpr, bool) {
 }
 
 func (u *user) fillFieldMap() {
-	u.fieldMap = make(map[string]field.Expr, 5)
+	u.fieldMap = make(map[string]field.Expr, 6)
 	u.fieldMap["id"] = u.ID
 	u.fieldMap["username"] = u.Username
 	u.fieldMap["password"] = u.Password
-	u.fieldMap["ctime"] = u.Ctime
-	u.fieldMap["utime"] = u.Utime
+	u.fieldMap["created_at"] = u.CreatedAt
+	u.fieldMap["updated_at"] = u.UpdatedAt
+	u.fieldMap["deleted_at"] = u.DeletedAt
 }
 
 func (u user) clone(db *gorm.DB) user {
