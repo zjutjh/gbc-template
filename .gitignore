@@ -31,6 +31,9 @@ go.work.sum
 .idea/
 .vscode/
 
+# config file
+/conf/config.yaml
+
 # log
 /logs
 *.log
