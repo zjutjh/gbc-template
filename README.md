@@ -1,1 +1,1 @@
-# jhgo-framework
+# gbc-template
